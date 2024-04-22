@@ -1,16 +1,14 @@
 name: Issue details
-on:
-    issues:
-    workflow_dispatch:
+on: issues
 
 jobs:
-    build:
+    show:
         runs-on: ubuntu-latest
         steps:
             - name: Print github context
               run: echo "${{ toJSON(github) }}"
 
             - name: Print issue details
-              run: echo "Issue ${{ issue.id }} ${{ action }} with title ${{ issue.title }}"
+              run: echo "Issue \#${{  github.event.issue.id }} ${{ github.event.action }} with title ${{ github.event.issue.title }}"
 
             
