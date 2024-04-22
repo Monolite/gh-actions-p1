@@ -1,0 +1,12 @@
+on:
+    issues:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print github context
+              uses: echo "${{ toJSON(github) }}"
+
+            
